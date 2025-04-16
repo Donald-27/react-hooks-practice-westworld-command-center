@@ -1,68 +1,19 @@
 .area {
-  border: 2px solid red;
-  position: absolute;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.area:hover {
+  transform: scale(1.02);
 }
 
 .labels {
-  padding: 5px;
-}
-
-#high_plains {
-  top: 20px;
-  left: 315px;
-  width: 300px;
-  padding: 10px;
-  min-height: 200px;
-  max-height: 200px;
-  height: 100%;
-}
-
-#lowlands {
-  top: 225px;
-  left: 360px;
-  width: 265px;
-  padding: 10px;
-  min-height: 190px;
-  max-height: 190px;
-  height: 100%;
-}
-
-#under_construction {
-  top: 425px;
-  left: 350px;
-  width: 300px;
-  padding: 10px;
-  min-height: 200px;
-  max-height: 200px;
-  height: 100%;
-}
-
-#pariah {
-  top: 450px;
-  left: 680px;
-  width: 500px;
-  padding: 10px;
-  min-height: 185px;
-  max-height: 185px;
-  height: 100%;
-}
-
-#python_pass {
-  top: 10px;
-  left: 660px;
-  width: 500px;
-  padding: 10px;
-  min-height: 185px;
-  max-height: 185px;
-  height: 100%;
-}
-
-#badlands {
-  top: 225px;
-  left: 700px;
-  width: 400px;
-  padding: 10px;
-  min-height: 175px;
-  max-height: 175px;
-  height: 100%;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
 }

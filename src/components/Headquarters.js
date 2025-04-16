@@ -1,19 +1,23 @@
 import React from "react";
-import { Grid } from "semantic-ui-react";
-import Details from "./Details";
+import { Segment } from "semantic-ui-react";
+import HostInfo from "./HostInfo";
+import HostList from "./HostList";
+import LogPanel from "./LogPanel";
 import "../stylesheets/Headquarters.css";
 
-function Headquarters() {
+function Headquarters({ hosts, setHosts, selectedHost, setSelectedHost, areas, logs, setLogs }) {
   return (
-    <Grid celled="internally">
-      <Grid.Column width={8}>{/* Something goes here.... */}</Grid.Column>
-      <Grid.Column width={5}>
-        <Details />
-      </Grid.Column>
-      <Grid.Column width={3}>
-        {/* and here. Take visual cues from the screenshot/video in the Readme. */}
-      </Grid.Column>
-    </Grid>
+    <Segment id="headquarters">
+      <HostList hosts={hosts} setSelectedHost={setSelectedHost} selectedHost={selectedHost} />
+      <HostInfo
+        host={selectedHost}
+        areas={areas}
+        hosts={hosts}
+        setHosts={setHosts}
+        setLogs={setLogs}
+      />
+      <LogPanel logs={logs} setLogs={setLogs} hosts={hosts} setHosts={setHosts} />
+    </Segment>
   );
 }
 

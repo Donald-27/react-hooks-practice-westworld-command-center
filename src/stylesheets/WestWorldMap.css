@@ -1,0 +1,10 @@
+#map {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    background: linear-gradient(to bottom, #222, #333);
+    min-height: 60vh;
+    border-radius: 12px;
+  }
+  

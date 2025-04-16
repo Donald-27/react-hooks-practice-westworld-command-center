@@ -1,30 +1,36 @@
 import React from "react";
+import { Segment, Image } from "semantic-ui-react";
 import "../stylesheets/Area.css";
 
-function Area() {
-  return (
-    <div
-      className="area"
-      id={
-        /* Pass in the area name here to make sure this is styled correctly */ "id"
-      }
-    >
-      <h3 className="labels">
-        {/* Don't just pass in the name from the data...clean that thing up */}
-      </h3>
-      {/* See Checkpoint 1 item 2 in the Readme for a clue as to what goes here */}
-    </div>
-  );
+function formatAreaName(name) {
+  if (typeof name !== "string") return "";
+  return name
+    .split("_")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
-Area.propTypes = {
-  hosts: function (props) {
-    if (props.hosts.length > props.limit) {
-      throw Error(
-        `HEY!! You got too many hosts in ${props.name}. The limit for that area is ${props.limit}. You gotta fix that!`
-      );
-    }
-  },
-};
+function Area({ area, hosts }) {
+  if (!area) return null;
+
+  const filteredHosts = hosts.filter((host) => host.area === area.name);
+
+  return (
+    <Segment className="area" id={area.name}>
+      <h3 className="labels">
+        {formatAreaName(area.name)} | {filteredHosts.length}{" "}
+        {filteredHosts.length === 1 ? "host" : "hosts"}
+      </h3>
+      {filteredHosts.map((host) => (
+        <Image
+          key={host.id}
+          src={host.imageUrl}
+          className="host"
+          alt={host.firstName}
+        />
+      ))}
+    </Segment>
+  );
+}
 
 export default Area;
